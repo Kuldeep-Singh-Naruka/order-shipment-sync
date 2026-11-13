@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node src/server.js",
+    "courier": "node mock-courier.js",
     "test": "node --test"
   },
   "dependencies": {
