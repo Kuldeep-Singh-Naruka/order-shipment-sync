@@ -1,12 +1,12 @@
-const express = require('express');
 const config = require('./config');
+const { createApp } = require('./app');
 
-const app = express();
+// Without a secret every webhook would get 401, so fail at startup where the cause is obvious.
+if (!config.webhookSecret) {
+  console.error('[server] WEBHOOK_SECRET is not set. Copy .env.example to .env');
+  process.exit(1);
+}
 
-app.get('/health', (req, res) => {
-  res.json({ ok: true });
-});
-
-app.listen(config.port, () => {
+createApp({ secret: config.webhookSecret }).listen(config.port, () => {
   console.log(`[server] listening on port ${config.port}`);
 });
