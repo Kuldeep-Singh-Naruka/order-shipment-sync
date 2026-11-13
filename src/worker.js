@@ -120,4 +120,4 @@ function startWorker(db, courier) {
   tick();
 }
 
-module.exports = { runOnce, startWorker };
+module.exports = { runOnce, startWorker, finish };
