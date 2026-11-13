@@ -1,5 +1,6 @@
 const config = require('./config');
 const { createApp } = require('./app');
+const { openDb } = require('./db');
 
 // Without a secret every webhook would get 401, so fail at startup where the cause is obvious.
 if (!config.webhookSecret) {
@@ -7,6 +8,8 @@ if (!config.webhookSecret) {
   process.exit(1);
 }
 
-createApp({ secret: config.webhookSecret }).listen(config.port, () => {
+const db = openDb();
+
+createApp({ db, secret: config.webhookSecret }).listen(config.port, () => {
   console.log(`[server] listening on port ${config.port}`);
 });

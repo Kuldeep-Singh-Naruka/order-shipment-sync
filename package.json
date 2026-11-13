@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node src/server.js",
     "courier": "node mock-courier.js",
+    "send-webhook": "node scripts/send-webhook.js",
     "test": "node --test"
   },
   "dependencies": {
