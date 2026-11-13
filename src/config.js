@@ -5,4 +5,5 @@ module.exports = {
   dbPath: process.env.DB_PATH || 'data.db',
   webhookSecret: process.env.WEBHOOK_SECRET,
   courierUrl: process.env.COURIER_URL || 'http://localhost:4000',
+  maxAttempts: Number(process.env.MAX_ATTEMPTS) || 5,
 };

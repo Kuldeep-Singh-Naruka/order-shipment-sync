@@ -11,6 +11,8 @@
     "start": "node src/server.js",
     "courier": "node mock-courier.js",
     "send-webhook": "node scripts/send-webhook.js",
+    "dead:list": "node scripts/dead-jobs.js list",
+    "dead:replay": "node scripts/dead-jobs.js replay",
     "test": "node --test"
   },
   "dependencies": {

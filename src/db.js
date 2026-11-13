@@ -25,6 +25,7 @@ const schema = `
     status     TEXT NOT NULL DEFAULT 'queued'
                CHECK (status IN ('queued', 'processing', 'done', 'dead')),
     attempts   INTEGER NOT NULL DEFAULT 0,
+    rate_limit_waits INTEGER NOT NULL DEFAULT 0,
     run_at     INTEGER NOT NULL,
     locked_at  INTEGER,
     last_error TEXT,
